@@ -22,11 +22,6 @@ switch ($_GET["op"]) { //TODO: Dependiendo de la operación solicitada, ejecutam
         // URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/controllers/proyectos.controller.php?op=todos
         // Método: GET
         // Descripción: Este endpoint devuelve todos los proyectos en formato JSON.
-        // Ejemplo de respuesta en JSON:
-        // [
-        //   {"proyecto_id": 1, "nombre": "Proyecto Alpha", "descripcion": "Descripción del Proyecto Alpha", "fecha_inicio": "2024-01-01", "fecha_fin": "2024-06-30"},
-        //   {"proyecto_id": 2, "nombre": "Proyecto Beta", "descripcion": "Descripción del Proyecto Beta", "fecha_inicio": "2024-03-15", "fecha_fin": "2024-09-15"}
-        // ]
         $datos = $proyectos->todos(); //TODO: Llamar al método todos del modelo Proyectos para obtener todas las filas
         $todos = []; //TODO: Crear un arreglo vacío para almacenar los datos
         while ($row = mysqli_fetch_assoc($datos)) { //TODO: Recorrer todas las filas devueltas y agregarlas al arreglo
@@ -35,24 +30,28 @@ switch ($_GET["op"]) { //TODO: Dependiendo de la operación solicitada, ejecutam
         echo json_encode($todos); //TODO: Convertir el arreglo a formato JSON para enviarlo como respuesta
         break;
 
-    case 'uno': //TODO: Caso para obtener un proyecto por su ID
-        // Ejemplo de uso en la URL para obtener un proyecto específico:
-        // URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/controllers/proyectos.controller.php?op=uno
-        // Método: POST
-        // Parámetro: 'proyecto_id' (ID del proyecto)
-        // Ejemplo en Postman:
-        // 1. Seleccionar método POST.
-        // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/controllers/proyectos.controller.php?op=uno
-        // 3. Body -> x-www-form-urlencoded -> proyecto_id=1
-        // Descripción: Este endpoint devuelve un proyecto específico en formato JSON.
-        // Ejemplo de respuesta en JSON:
-        // {"proyecto_id": 1, "nombre": "Proyecto Alpha", "descripcion": "Descripción del Proyecto Alpha", "fecha_inicio": "2024-01-01", "fecha_fin": "2024-06-30"}
-        $proyecto_id = $_POST["proyecto_id"]; //TODO: Obtener el ID del proyecto desde los datos enviados en la solicitud
-        $datos = $proyectos->uno($proyecto_id); //TODO: Llamar al método uno del modelo Proyectos para obtener la fila correspondiente
-        $res = mysqli_fetch_assoc($datos); //TODO: Convertir el resultado en un arreglo asociativo
-        echo json_encode($res); //TODO: Convertir el arreglo a JSON y enviarlo como respuesta
-        break;
-
+        case 'uno': // Procedimiento para obtener un proyecto por su ID
+            // Verificar si el parámetro 'proyecto_id' está presente en GET o POST
+            if (isset($_GET['proyecto_id'])) {
+                $proyecto_id = $_GET['proyecto_id']; // Obtener el ID del proyecto desde la URL
+            } elseif (isset($_POST['proyecto_id'])) {
+                $proyecto_id = $_POST['proyecto_id']; // Obtener el ID del proyecto desde los datos enviados en POST
+            } else {
+                // Mostrar un mensaje de error si el parámetro no está definido
+                echo json_encode(['error' => 'El parámetro proyecto_id no está definido.']);
+                exit;
+            }
+    
+            // Verificar que $proyecto_id no esté vacío antes de continuar
+            if (!empty($proyecto_id)) {
+                $datos = $proyectos->uno($proyecto_id); // Llamar al método uno del modelo Proyectos
+                $res = mysqli_fetch_assoc($datos); // Obtener la fila asociada al resultado
+                echo json_encode($res); // Convertir el resultado a JSON y enviarlo como respuesta
+            } else {
+                echo json_encode(['error' => 'El valor de proyecto_id está vacío.']);
+            }
+            break;
+            
     case 'insertar': //TODO: Caso para insertar un nuevo proyecto
         // Ejemplo de uso en la URL para insertar un nuevo proyecto:
         // URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/controllers/proyectos.controller.php?op=insertar

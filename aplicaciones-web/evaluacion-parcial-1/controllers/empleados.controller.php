@@ -69,6 +69,7 @@ switch ($_GET["op"]) { //TODO: Dependiendo de la operación solicitada, ejecutam
         // Descripción: Este endpoint inserta un nuevo empleado en la base de datos.
         // Ejemplo de respuesta en JSON (si la inserción fue exitosa):
         // {"status": "success", "message": "Empleado creado con éxito", "empleado_id": 3}
+        
         $nombre = $_POST["nombre"]; //TODO: Obtener el nombre del empleado desde los datos enviados
         $apellido = $_POST["apellido"]; //TODO: Obtener el apellido del empleado desde los datos enviados
         $email = $_POST["email"]; //TODO: Obtener el email del empleado desde los datos enviados

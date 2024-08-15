@@ -6,9 +6,6 @@ require_once('../config/config.php');
 class Empleados
 {
     //TODO: Método para obtener todos los empleados
-    // Ejemplo en Postman:
-    // 1. Seleccionar método GET.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/empleados.php?op=todos
     // Descripción: Este endpoint devuelve todos los empleados en formato JSON.
     public function todos()
     {
@@ -21,10 +18,6 @@ class Empleados
     }
 
     //TODO: Método para obtener un empleado por su ID
-    // Ejemplo en Postman:
-    // 1. Seleccionar método POST.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/empleados.php?op=uno
-    // 3. Body -> x-www-form-urlencoded -> empleado_id=1
     // Descripción: Este endpoint devuelve un empleado específico en formato JSON.
     public function uno($empleado_id)
     {
@@ -37,14 +30,6 @@ class Empleados
     }
 
     //TODO: Método para insertar un nuevo empleado
-    // Ejemplo en Postman:
-    // 1. Seleccionar método POST.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/empleados.php?op=insertar
-    // 3. Body -> x-www-form-urlencoded ->
-    //    nombre=Pedro
-    //    apellido=Lopez
-    //    email=pedro.lopez@example.com
-    //    posicion=Analista
     // Descripción: Este endpoint inserta un nuevo empleado en la base de datos.
     public function insertar($nombre, $apellido, $email, $posicion)
     {
@@ -65,15 +50,6 @@ class Empleados
     }
 
     //TODO: Método para actualizar un empleado existente
-    // Ejemplo en Postman:
-    // 1. Seleccionar método POST.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/empleados.php?op=actualizar
-    // 3. Body -> x-www-form-urlencoded ->
-    //    empleado_id=1
-    //    nombre=Carlos
-    //    apellido=Ramirez
-    //    email=carlos.ramirez@example.com
-    //    posicion=Gerente
     // Descripción: Este endpoint actualiza los detalles de un empleado existente.
     public function actualizar($empleado_id, $nombre, $apellido, $email, $posicion)
     {
@@ -94,10 +70,6 @@ class Empleados
     }
 
     //TODO: Método para eliminar un empleado
-    // Ejemplo en Postman:
-    // 1. Seleccionar método POST.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/empleados.php?op=eliminar
-    // 3. Body -> x-www-form-urlencoded -> empleado_id=1
     // Descripción: Este endpoint elimina un empleado de la base de datos.
     public function eliminar($empleado_id)
     {

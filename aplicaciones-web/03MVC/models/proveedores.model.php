@@ -1,6 +1,6 @@
 <?php
 //TODO: Clase de Provedores
-require_once('./config/config.php');
+require_once('../config/config.php');
 class Provedores
 {
     //TODO: Implementar los metodos de la clase

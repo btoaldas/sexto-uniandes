@@ -9,7 +9,7 @@ if ($method == "OPTIONS") {
 }
 //TODO: controlador de proveedores
 
-require_once('./models/proveedores.model.php');
+require_once('../models/proveedores.model.php');
 error_reporting(0);
 $proveedores = new Provedores;
 

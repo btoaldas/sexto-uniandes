@@ -6,9 +6,6 @@ require_once('../config/config.php');
 class Asignaciones
 {
     //TODO: Método para obtener todas las asignaciones
-    // Ejemplo en Postman:
-    // 1. Seleccionar método GET.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/asignaciones.php?op=todos
     // Descripción: Este endpoint devuelve todas las asignaciones en formato JSON.
     public function todos()
     {
@@ -21,10 +18,6 @@ class Asignaciones
     }
 
     //TODO: Método para obtener una asignación por su ID
-    // Ejemplo en Postman:
-    // 1. Seleccionar método POST.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/asignaciones.php?op=uno
-    // 3. Body -> x-www-form-urlencoded -> asignacion_id=1
     // Descripción: Este endpoint devuelve una asignación específica en formato JSON.
     public function uno($asignacion_id)
     {
@@ -37,13 +30,6 @@ class Asignaciones
     }
 
     //TODO: Método para insertar una nueva asignación
-    // Ejemplo en Postman:
-    // 1. Seleccionar método POST.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/asignaciones.php?op=insertar
-    // 3. Body -> x-www-form-urlencoded ->
-    //    proyecto_id=2
-    //    empleado_id=3
-    //    fecha_asignacion=2024-08-20
     // Descripción: Este endpoint inserta una nueva asignación en la base de datos.
     public function insertar($proyecto_id, $empleado_id, $fecha_asignacion)
     {
@@ -64,14 +50,6 @@ class Asignaciones
     }
 
     //TODO: Método para actualizar una asignación existente
-    // Ejemplo en Postman:
-    // 1. Seleccionar método POST.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/asignaciones.php?op=actualizar
-    // 3. Body -> x-www-form-urlencoded ->
-    //    asignacion_id=1
-    //    proyecto_id=2
-    //    empleado_id=3
-    //    fecha_asignacion=2024-09-01
     // Descripción: Este endpoint actualiza los detalles de una asignación existente.
     public function actualizar($asignacion_id, $proyecto_id, $empleado_id, $fecha_asignacion)
     {
@@ -92,10 +70,6 @@ class Asignaciones
     }
 
     //TODO: Método para eliminar una asignación
-    // Ejemplo en Postman:
-    // 1. Seleccionar método POST.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/asignaciones.php?op=eliminar
-    // 3. Body -> x-www-form-urlencoded -> asignacion_id=1
     // Descripción: Este endpoint elimina una asignación de la base de datos.
     public function eliminar($asignacion_id)
     {

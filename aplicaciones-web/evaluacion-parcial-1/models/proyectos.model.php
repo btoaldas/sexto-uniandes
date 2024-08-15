@@ -6,9 +6,6 @@ require_once('../config/config.php');
 class Proyectos
 {
     //TODO: Método para obtener todos los proyectos
-    // Ejemplo en Postman:
-    // 1. Seleccionar método GET.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/proyectos.php?op=todos
     // Descripción: Este endpoint devuelve todos los proyectos en formato JSON.
     public function todos()
     {
@@ -21,30 +18,18 @@ class Proyectos
     }
 
     //TODO: Método para obtener un proyecto por su ID
-    // Ejemplo en Postman:
-    // 1. Seleccionar método POST.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/proyectos.php?op=uno
-    // 3. Body -> x-www-form-urlencoded -> proyecto_id=1
     // Descripción: Este endpoint devuelve un proyecto específico en formato JSON.
     public function uno($proyecto_id)
     {
         $con = new ClaseConectar(); //TODO: Crear una nueva conexión a la base de datos
         $con = $con->ProcedimientoParaConectar(); //TODO: Establecer la conexión
-        $cadena = "SELECT * FROM Proyectos WHERE proyecto_id = $proyecto_id"; //TODO: Definir la consulta SQL para obtener un proyecto específico
+        $cadena = "SELECT * FROM  `proyectos` WHERE `proyecto_id` =$proyecto_id"; //TODO: Definir la consulta SQL para obtener un proyecto específico
         $datos = mysqli_query($con, $cadena); //TODO: Ejecutar la consulta
         $con->close(); //TODO: Cerrar la conexión
         return $datos; //TODO: Retornar los datos obtenidos
     }
 
     //TODO: Método para insertar un nuevo proyecto
-    // Ejemplo en Postman:
-    // 1. Seleccionar método POST.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/proyectos.php?op=insertar
-    // 3. Body -> x-www-form-urlencoded ->
-    //    nombre=Proyecto Zeta
-    //    descripcion=Descripción del Proyecto Zeta
-    //    fecha_inicio=2024-09-01
-    //    fecha_fin=2025-03-31
     // Descripción: Este endpoint inserta un nuevo proyecto en la base de datos.
     public function insertar($nombre, $descripcion, $fecha_inicio, $fecha_fin)
     {
@@ -65,15 +50,6 @@ class Proyectos
     }
 
     //TODO: Método para actualizar un proyecto existente
-    // Ejemplo en Postman:
-    // 1. Seleccionar método POST.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/proyectos.php?op=actualizar
-    // 3. Body -> x-www-form-urlencoded ->
-    //    proyecto_id=1
-    //    nombre=Proyecto Alfa Actualizado
-    //    descripcion=Descripción actualizada del Proyecto Alfa
-    //    fecha_inicio=2024-01-01
-    //    fecha_fin=2024-12-31
     // Descripción: Este endpoint actualiza los detalles de un proyecto existente.
     public function actualizar($proyecto_id, $nombre, $descripcion, $fecha_inicio, $fecha_fin)
     {
@@ -94,10 +70,6 @@ class Proyectos
     }
 
     //TODO: Método para eliminar un proyecto
-    // Ejemplo en Postman:
-    // 1. Seleccionar método POST.
-    // 2. URL: http://localhost/sexto-uniandes/aplicaciones-web/evaluacion-parcial-1/models/proyectos.php?op=eliminar
-    // 3. Body -> x-www-form-urlencoded -> proyecto_id=1
     // Descripción: Este endpoint elimina un proyecto de la base de datos.
     public function eliminar($proyecto_id)
     {
