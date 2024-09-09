@@ -7,7 +7,7 @@ import { Iproveedor } from '../Interfaces/iproveedor';
   providedIn: 'root'
 })
 export class ProveedorService {
-  apiurl = 'http://localhost/Sexto-Uniandes/aplicaciones-webb/mcv_03/controllers/proveedores.controller.php?op=';
+  apiurl = 'http://localhost/sexto-uniandes/aplicaciones-web/mcv_03/controllers/proveedores.controller.php?op=';
  
   constructor(private lector: HttpClient) {}
 

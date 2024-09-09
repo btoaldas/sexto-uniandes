@@ -9,55 +9,22 @@ if ($method == "OPTIONS") {
 }
 
 require_once('../models/iva.model.php');
-error_reporting(0);/
+error_reporting(0);
 $iva = new Iva;
 
 switch ($_GET["op"]) {
-       
+    // TODO: Operaciones de productos
 
-    case 'todos': 
-        $datos = array(); 
-        $datos = $iva->todos(); 
-        while ($row = mysqli_fetch_assoc($datos)) 
-        {
+    case 'todos': // Procedimiento para cargar todos
+        $datos = array();
+        $datos = $iva->todos();
+        while ($row = mysqli_fetch_assoc($datos)) {
             $todos[] = $row;
         }
         echo json_encode($todos);
         break;
-        
-    case 'uno':
-        $idIVA = $_POST["idIVA"];
-        $datos = array();
-        $datos = $iva->uno($idIVA);
-        $res = mysqli_fetch_assoc($datos);
-        echo json_encode($res);
-        break;
-     
-    case 'insertar':
-        $Detalle = $_POST["Detalle"];
-        $Estado = $_POST["Estado"];
-        $Valor = $_POST["Valor"];
 
-        $datos = array();
-        $datos = $iva->insertar($Detalle, $Estado, $Valor);
-        echo json_encode($datos);
-        break;
-        
-    case 'actualizar':
-        $idIVA = $_POST["idIVA"];
-        $Detalle = $_POST["Detalle"];
-        $Estado = $_POST["Estado"];
-        $Valor = $_POST["Valor"];
-       
-        $datos = array();
-        $datos = $iva->actualizar($idIVA, $Detalle, $Estado, $Valor);
-        echo json_encode($datos);
-        break;
-        
-    case 'eliminar':
-        $idIVA = $_POST["idIVA"];
-        $datos = array();
-        $datos = $iva->eliminar($idIVA);
-        echo json_encode($datos);
+    default:
+        echo json_encode(["error" => "Invalid operation."]);
         break;
 }

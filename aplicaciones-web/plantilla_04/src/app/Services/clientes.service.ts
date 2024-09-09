@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ClientesService {
-  apiurl = 'http://localhost/Sexto-Uniandes/aplicaciones-web/mcv_03/controllers/clientes.controller.php?op=';
+  apiurl = 'http://localhost/sexto-uniandes/aplicaciones-web/mcv_03/controllers/clientes.controller.php?op=';
   constructor(private lector: HttpClient) {}
   todos(): Observable<ICliente[]> {
     return this.lector.get<ICliente[]>(this.apiurl + 'todos');
