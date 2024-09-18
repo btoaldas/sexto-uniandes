@@ -1,50 +1,105 @@
 <div class="main-content">
   <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-8">
-              <div class="card">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title">{{ titulo }}</h4>
-                      <p class="card-category">Complete los datos del autor</p>
-                  </div>
-                  <div class="card-body">
-                      <form #autorForm="ngForm" (ngSubmit)="grabar()" novalidate>
-                          <div class="row">
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Nombre" [(ngModel)]="autor.nombre" name="nombre" required #nombre="ngModel">
-                                  <mat-error *ngIf="nombre.invalid && nombre.touched">El nombre es obligatorio.</mat-error>
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Apellido" [(ngModel)]="autor.apellido" name="apellido" required #apellido="ngModel">
-                                  <mat-error *ngIf="apellido.invalid && apellido.touched">El apellido es obligatorio.</mat-error>
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Fecha de Nacimiento" type="date" [(ngModel)]="autor.fecha_nacimiento" name="fecha_nacimiento" required #fecha="ngModel">
-                                  <mat-error *ngIf="fecha.invalid && fecha.touched">La fecha de nacimiento es obligatoria.</mat-error>
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Nacionalidad" [(ngModel)]="autor.nacionalidad" name="nacionalidad" required #nacionalidad="ngModel">
-                                  <mat-error *ngIf="nacionalidad.invalid && nacionalidad.touched">La nacionalidad es obligatoria.</mat-error>
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Guardar Autor</button>
-                          <div class="clearfix"></div>
-                      </form>
-                  </div>
-              </div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">{{ titulo }}</h4>
+            <p class="card-category">Complete los datos del autor</p>
           </div>
+          <div class="card-body">
+            <form #autorForm="ngForm" (ngSubmit)="grabar()" novalidate>
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Nombre"
+                      [(ngModel)]="autor.nombre"
+                      name="nombre"
+                      required
+                      #nombre="ngModel"
+                    />
+                    <mat-error *ngIf="nombre.invalid && nombre.touched"
+                      >El nombre es obligatorio.</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Apellido"
+                      [(ngModel)]="autor.apellido"
+                      name="apellido"
+                      required
+                      #apellido="ngModel"
+                    />
+                    <mat-error *ngIf="apellido.invalid && apellido.touched"
+                      >El apellido es obligatorio.</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Fecha de Nacimiento"
+                      type="date"
+                      [(ngModel)]="autor.fecha_nacimiento"
+                      name="fecha_nacimiento"
+                      required
+                      #fecha="ngModel"
+                    />
+                    <mat-error *ngIf="fecha.invalid && fecha.touched"
+                      >La fecha de nacimiento es obligatoria.</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Nacionalidad"
+                      [(ngModel)]="autor.nacionalidad"
+                      name="nacionalidad"
+                      required
+                      #nacionalidad="ngModel"
+                    />
+                    <mat-error
+                      *ngIf="nacionalidad.invalid && nacionalidad.touched"
+                      >La nacionalidad es obligatoria.</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+              </div>
+              <button
+                mat-raised-button
+                type="submit"
+                class="btn btn-danger pull-right"
+              >
+                Guardar Autor
+              </button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
       </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body text-center">
+            <img
+              src="/assets/img/autor.png"
+              class="img-fluid"
+              alt="Imagen Autor"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
