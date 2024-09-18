@@ -1,0 +1,64 @@
+<div class="main-content"> 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Insertar/Editar Libro</h4>
+              <p class="card-category">Complete los datos del libro</p>
+            </div>
+            <div class="card-body">
+              <form #libroForm="ngForm" (ngSubmit)="grabar(libroForm)" novalidate>
+                <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Título" [(ngModel)]="libro.titulo" name="titulo" required #titulo="ngModel">
+                      <mat-error *ngIf="titulo.invalid && titulo.touched">El título es obligatorio.</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Seleccione un Autor</mat-label>
+                      <mat-select [(ngModel)]="libro.autor_id" name="autor_id" required #autorId="ngModel">
+                        <mat-option *ngFor="let autor of autores" [value]="autor.autor_id">
+                          {{ autor.autor_id }} - {{ autor.nombre }} {{ autor.apellido }}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="autorId.invalid && autorId.touched">El autor es obligatorio.</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Fecha de Publicación" type="date" [(ngModel)]="libro.fecha_publicacion" name="fecha_publicacion" required #fecha="ngModel">
+                      <mat-error *ngIf="fecha.invalid && fecha.touched">La fecha de publicación es obligatoria.</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Género" [(ngModel)]="libro.genero" name="genero" required #genero="ngModel">
+                      <mat-error *ngIf="genero.invalid && genero.touched">El género es obligatorio.</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="ISBN" type="number" [(ngModel)]="libro.isbn" name="isbn" required #isbn="ngModel">
+                      <mat-error *ngIf="isbn.invalid && isbn.touched">El ISBN es obligatorio.</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <button mat-raised-button type="submit" class="btn btn-danger pull-right" >Guardar Libro</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

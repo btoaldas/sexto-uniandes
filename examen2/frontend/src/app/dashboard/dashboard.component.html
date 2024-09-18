@@ -1,0 +1,187 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <!-- Total Autores Registrados -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">person</i>
+                      </div>
+                      <p class="card-category">Autores Registrados</p>
+                      <h3 class="card-title">20
+                          <small>Autores</small>
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons text-danger">warning</i>
+                          <a href="javascript:void(0)">Añadir más autores</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Total Libros Registrados -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">library_books</i>
+                      </div>
+                      <p class="card-category">Libros Registrados</p>
+                      <h3 class="card-title">35
+                          <small>Libros</small>
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">update</i> Actualizado hoy
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Promedio de Libros por Autor -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-info card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">assessment</i>
+                      </div>
+                      <p class="card-category">Libros por Autor</p>
+                      <h3 class="card-title">1.75
+                          <small>Promedio</small>
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">date_range</i> Última actualización: Ayer
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Categorías de Libros -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">category</i>
+                      </div>
+                      <p class="card-category">Categorías de Libros</p>
+                      <h3 class="card-title">8
+                          <small>Categorías</small>
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">update</i> Actualizado hace 2 días
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Ventas diarias simuladas para autores (puede ser otra métrica real) -->
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card card-chart">
+                  <div class="card-header card-header-success">
+                      <div class="ct-chart" id="dailySalesChart"></div>
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">Libros Añadidos Diarios</h4>
+                      <p class="card-category">
+                          <span class="text-success"><i class="fa fa-long-arrow-up"></i> 5 </span> libros añadidos hoy
+                      </p>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">access_time</i> Actualizado hace 10 minutos
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Estadísticas de campañas para autores (puede simularse como campañas literarias) -->
+          <div class="col-md-4">
+              <div class="card card-chart">
+                  <div class="card-header card-header-warning">
+                      <div class="ct-chart" id="websiteViewsChart"></div>
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">Campañas Literarias</h4>
+                      <p class="card-category">Última campaña realizada</p>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">access_time</i> Hace 3 días
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Tareas completadas (puede simularse como hitos del proyecto o similares) -->
+          <div class="col-md-4">
+              <div class="card card-chart">
+                  <div class="card-header card-header-danger">
+                      <div class="ct-chart" id="completedTasksChart"></div>
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">Tareas Completadas</h4>
+                      <p class="card-category">Progreso del proyecto editorial</p>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">access_time</i> Hace 1 hora
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Simulación de tabla de empleados, adaptada a autores registrados -->
+      <div class="row">
+          <div class="col-lg-6 col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-primary">
+                      <h4 class="card-title">Autores Registrados</h4>
+                      <p class="card-category">Listado de autores en la base de datos</p>
+                  </div>
+                  <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                          <thead class="text-warning">
+                              <th>ID</th>
+                              <th>Nombre</th>
+                              <th>Nacionalidad</th>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>1</td>
+                                  <td>Juan Perez</td>
+                                  <td>Ecuador</td>
+                              </tr>
+                              <tr>
+                                  <td>2</td>
+                                  <td>Maria Lopez</td>
+                                  <td>Colombia</td>
+                              </tr>
+                              <tr>
+                                  <td>3</td>
+                                  <td>Carlos Ramirez</td>
+                                  <td>Perú</td>
+                              </tr>
+                              <tr>
+                                  <td>4</td>
+                                  <td>Luisa Fernandez</td>
+                                  <td>Argentina</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
