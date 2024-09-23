@@ -1,0 +1,21 @@
+{
+    "name": "alber/ia",
+    "description": "vertex",
+    "type": "library",
+    "require": {
+        "google/cloud-ai-platform": "^1.6",
+        "google/cloud-vision": "^1.9",
+        "google/cloud-storage": "^1.42"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alber\\Ia\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alberto Aldas",
+            "email": "aaldas@uea.edu.ec"
+        }
+    ]
+}
