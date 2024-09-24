@@ -1223,10 +1223,118 @@ th {
     }
 }
 
+#user-input {
+    width: 300px;
+    /* Ajustar el ancho del cuadro de texto */
+    border: none;
+    /* Sin borde */
+    outline: none;
+    /* Evitar el borde al hacer clic */
+    background-color: transparent;
+    /* Fondo transparente */
+    font-size: 16px;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 40px;
+    resize: none;
+    /* Evitar que el usuario cambie el tamaño */
+    border-radius: 10px;
+}
+
+/* Asegurarse de que el formulario esté completamente invisible */
+#uploadForm {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+#uploadForm input {
+    display: none;
+    /* Mantener el input de imagen oculto */
+}
+
+.chat-bubble.user {
+    background-color: #e9ecef;
+    /* Fondo gris claro */
+    color: #333;
+}
 
 
+.conversation-container {
+    max-width: 100%;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+}
 
+.chat-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
 
+.chat-bubble {
+    border-radius: 15px;
+    padding: 15px;
+    max-width: 80%;
+    position: relative;
+}
+
+.chat-bubble.ia,
+.chat-bubble.user {
+    background-color: #e9ecef;
+    /* Mismo color para IA y Usuario */
+    color: #333;
+    text-align: left;
+}
+
+.chat-bubble.user textarea {
+    /* width: calc(100% - 10px); /* Ajustar el ancho del cuadro de texto */
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 16px;
+    padding: 10px;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.chat-bubble.user textarea::placeholder {
+    color: #666;
+}
+
+.chat-icon {
+    margin: 0 15px;
+}
+
+.chat-row.ia {
+    justify-content: flex-start;
+}
+
+.chat-row.user {
+    justify-content: flex-end;
+}
+
+.chat-icon i {
+    color: #125215;
+}
+
+.clearfix {
+    clear: both;
+}
+
+#image-upload {
+    display: none;
+}
+
+.chat-bubble.user label {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+}
 
 
 
@@ -1475,10 +1583,11 @@ button:hover {
     margin: 20px;
 }
 
-/* Ajustar tamaño de los gráficos */
-.chart-container {
-    width: 100%;
+.chart-container canvas {
+    width: 100% !important;
+    height: auto !important;
 }
+
 
 .canvasdashboard {
     width: 100% !important;  /* Hacer que los gráficos usen el 100% del ancho del contenedor */

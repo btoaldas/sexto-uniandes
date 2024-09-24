@@ -20,6 +20,84 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let isAuthenticated = false;
 
+
+
+let inventoryChartInstance;
+let categoryChartInstance;
+
+// Cargar los datos del dashboard
+fetch('../proyecto-integrador/php/dashboard-data.php')
+    .then(response => response.json())
+    .then(data => {
+        // Destruir gráficos anteriores si existen
+        if (inventoryChartInstance) {
+            inventoryChartInstance.destroy();
+        }
+        if (categoryChartInstance) {
+            categoryChartInstance.destroy();
+        }
+
+        // Crear el gráfico de pie para la distribución del inventario
+        var ctx = document.getElementById('inventoryChart').getContext('2d');
+        inventoryChartInstance = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Pasturas', 'Ordeño', 'Riego', 'Cercado'],
+                datasets: [{
+                    label: 'Distribución del Inventario',
+                    data: [data.total_pasturas, data.total_ordeño, data.total_riego, data.total_cercado],
+                    backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56']
+                }]
+            }
+        });
+
+        // Crear el gráfico de barras para el valor total del inventario
+        var ctx2 = document.getElementById('categoryChart').getContext('2d');
+        categoryChartInstance = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Valor Total del Inventario'],
+                datasets: [{
+                    label: 'Valor en USD',
+                    data: [data.total_inventory_value],
+                    backgroundColor: '#36a2eb'
+                }]
+            }
+        });
+
+        // Filtro por categoría
+        document.getElementById('categoryFilter').addEventListener('change', function() {
+            let category = this.value;
+            let filteredData;
+
+            if (category === 'all') {
+                filteredData = [data.total_pasturas, data.total_ordeño, data.total_riego, data.total_cercado];
+            } else {
+                filteredData = [data[`total_${category}`]];
+            }
+
+            // Destruir el gráfico antes de crear uno nuevo
+            if (categoryChartInstance) {
+                categoryChartInstance.destroy();
+            }
+
+            var ctxFiltered = document.getElementById('categoryChart').getContext('2d');
+            categoryChartInstance = new Chart(ctxFiltered, {
+                type: 'bar',
+                data: {
+                    labels: [category],
+                    datasets: [{
+                        label: `Total en ${category}`,
+                        data: filteredData,
+                        backgroundColor: '#ffce56'
+                    }]
+                }
+            });
+        });
+    })
+    .catch(error => console.error('Error al obtener los datos:', error));
+
+
 function showSection(sectionId) {
     // Oculta todas las secciones
     document.querySelectorAll('.content.section').forEach(function(section) {
@@ -597,14 +675,294 @@ function loadDashboardData() {
                 { category: 'Riego', value: data.total_stock_riego },
                 { category: 'Cercado', value: data.total_stock_cercado }
             ], 'stock-chart', 'Existencias por Categoría');
-        })
+
+                // Crear gráfico de líneas
+                createLineChart({
+                    pasturas: data.prices_and_stock_pasturas,
+                    ordeño: data.prices_and_stock_ordeño,
+                    riego: data.prices_and_stock_riego,
+                    cercado: data.prices_and_stock_cercado
+                }, 'price-stock-chart', 'Precio vs Existencias por Categoría');
+                    
+             // Crear gráfico de dona para el valor total del inventario por categoría
+             createDoughnutChart(data, 'inventory-value-chart', 'Distribución del Valor del Inventario por Categoría');
+      
+       
+            })
         .catch(error => console.error('Error:', error));
 }
 
 
+function createDoughnutChart(data, elementId, title) {
+    const ctx = document.getElementById(elementId).getContext('2d');
+    const values = [
+        data.value_pasturas,
+        data.value_ordeño,
+        data.value_riego,
+        data.value_cercado
+    ];
+
+    const labels = ['Pasturas', 'Ordeño', 'Riego', 'Cercado'];
+
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: title
+                }
+            }
+        }
+    });
+}
 
 
+function showSection(sectionId) {
+    // Ocultar todas las secciones
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
 
+    // Mostrar la sección seleccionada
+    const activeSection = document.getElementById(sectionId);
+    activeSection.classList.add('active');
+
+    // Opcional: Recargar dinámicamente los contenidos que necesitan ser actualizados
+    if (sectionId === 'dashboard') {
+        refreshDashboard(); // Actualiza el contenido del dashboard
+    } else if (sectionId === 'IA') {
+        refreshIA(); // Si es el clasificador IA, puedes refrescar la interfaz aquí
+    }
+}
+
+
+        // Función para recargar dinámicamente el contenido del Dashboard
+
+
+        // Get the data and display in the dashboard
+       
+        
+        
+        
+        
+                // Función para refrescar la sección de IA (si es necesario)
+                function refreshIA() {
+                    // Si necesitas refrescar algún contenido específico en la IA
+                    // Aquí puedes enviar una petición AJAX o simplemente cargar algún contenido dinámico
+                    console.log('IA section refreshed');
+                }
+        
+                // Función opcional para actualizar gráficos
+                function updateCharts(chartData) {
+                    // Lógica para actualizar gráficos con Chart.js u otra biblioteca
+                }
+                function updateInventoryChart(inventoryData) {
+            const ctx = document.getElementById('inventoryChart').getContext('2d');
+            const inventoryChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: inventoryData.labels,  // Labels for x-axis
+                    datasets: [{
+                        label: 'Inventory Count',
+                        data: inventoryData.data,  // Data for y-axis
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+        
+        function updateCategoryChart(categoryData) {
+            const ctx = document.getElementById('categoryChart').getContext('2d');
+            const categoryChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: categoryData.labels,
+                    datasets: [{
+                        data: categoryData.data,
+                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Product Categories'
+                        }
+                    }
+                }
+            });
+        }
+        
+        function updateStockChart(stockData) {
+            const ctx = document.getElementById('stock-chart').getContext('2d');
+            const stockChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: stockData.labels,
+                    datasets: [{
+                        label: 'Stock Over Time',
+                        data: stockData.data,
+                        borderColor: 'rgba(255,99,132,1)',
+                        backgroundColor: 'rgba(255,99,132,0.2)',
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+        
+        function createLineChart(data, elementId, title) {
+            const ctx = document.getElementById(elementId).getContext('2d');
+        
+            const datasets = [
+                {
+                    label: 'Pasturas',
+                    data: data.pasturas.map(item => ({ x: item.Precio, y: item.Existencia })),
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    fill: false
+                },
+                {
+                    label: 'Ordeño',
+                    data: data.ordeño.map(item => ({ x: item.Precio, y: item.Existencia })),
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    fill: false
+                },
+                {
+                    label: 'Riego',
+                    data: data.riego.map(item => ({ x: item.Precio, y: item.Existencia })),
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: false
+                },
+                {
+                    label: 'Cercado',
+                    data: data.cercado.map(item => ({ x: item.Precio, y: item.Existencia })),
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    fill: false
+                }
+            ];
+        
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: datasets
+                },
+                options: {
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom',
+                            title: {
+                                display: true,
+                                text: 'Precio'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Existencias'
+                            }
+                        }
+                    },
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: title
+                        }
+                    }
+                }
+            });
+        }          
+
+
+        function refreshDashboard() {
+            $.ajax({
+                url: '../proyecto-integrador/php/dashboard-data.php',
+                method: 'GET',
+                success: function (data) {
+                    // Display totals
+                    $('#total-users').text(data.total_users);
+                    $('#total-products').text(data.total_pasturas + data.total_ordeño + data.total_riego + data.total_cercado);
+                    $('#total-inventory-value').text(data.total_inventory_value.toFixed(2));
+        
+                    // Find the most expensive product
+                    const topProducts = [
+                        { product: data.top_pasturas_product, price: data.top_pasturas_price },
+                        { product: data.top_ordeño_product, price: data.top_ordeño_price },
+                        { product: data.top_riego_product, price: data.top_riego_price },
+                        { product: data.top_cercado_product, price: data.top_cercado_price }
+                    ];
+        
+                    // Sort by price in descending order and get the top one
+                    topProducts.sort((a, b) => b.price - a.price);
+                    const topProduct = topProducts[0];
+        
+                    // Display top product
+                    $('#top-product').text(`${topProduct.product} - $${topProduct.price.toFixed(2)}`);
+                
+                  // Crear gráfico de dona para el valor total del inventario por categoría
+            createDoughnutChart(data, 'inventory-value-chart', 'Distribución del Valor del Inventario por Categoría');
+
+
+            
+      
+                
+                
+                },
+                error: function () {
+                    console.error('Error fetching dashboard data');
+                }
+            });
+        }
 
 
 window.onload = function() {
