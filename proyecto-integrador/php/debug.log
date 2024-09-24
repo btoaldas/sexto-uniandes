@@ -45,3 +45,126 @@
 [2024-09-24 08:09:05] Acción: read, Tabla: cercado
 [2024-09-24 08:09:16] Solicitud recibida: {"action":"read","table":"pasturas"}
 [2024-09-24 08:09:16] Acción: read, Tabla: pasturas
+[2024-09-24 08:20:35] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 08:20:35] Acción: read, Tabla: pasturas
+[2024-09-24 16:56:15] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 16:56:15] Acción: read, Tabla: pasturas
+[2024-09-24 17:03:57] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:03:57] Acción: read, Tabla: pasturas
+[2024-09-24 17:04:00] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:04:00] Acción: read, Tabla: pasturas
+[2024-09-24 17:04:24] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:04:24] Acción: read, Tabla: pasturas
+[2024-09-24 17:04:25] Solicitud recibida: {"action":"read","table":"orde\u00f1o"}
+[2024-09-24 17:04:25] Acción: read, Tabla: ordeño
+[2024-09-24 17:04:26] Solicitud recibida: {"action":"read","table":"riego"}
+[2024-09-24 17:04:26] Acción: read, Tabla: riego
+[2024-09-24 17:04:27] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:04:27] Acción: read, Tabla: cercado
+[2024-09-24 17:04:34] Solicitud recibida: {"action":"create","table":"cercado","data":"{\"producto\":\"Pasto Ecuador\",\"precio\":\"212\",\"existencia\":\"1212\"}"}
+[2024-09-24 17:04:34] Acción: create, Tabla: cercado
+[2024-09-24 17:04:34] Intentando crear: tabla=cercado, data={"producto":"Pasto Ecuador","precio":"212","existencia":"1212"}
+[2024-09-24 17:04:34] SQL: INSERT INTO cercado (producto, precio, existencia, codigo_barras) VALUES (?, ?, ?, ?)
+[2024-09-24 17:04:34] Creación exitosa
+[2024-09-24 17:04:36] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:04:36] Acción: read, Tabla: cercado
+[2024-09-24 17:04:45] Solicitud recibida: {"action":"read","table":"cercado","codigo_barras":"PROD_66f2d502e00d78.04982152"}
+[2024-09-24 17:04:45] Acción: read, Tabla: cercado
+[2024-09-24 17:04:47] Solicitud recibida: {"action":"update","table":"cercado","codigo_barras":"PROD_66f2d502e00d78.04982152","data":"{\"Producto\":\"Pasto Ecuador\",\"Precio\":\"212.00\",\"Existencia\":\"12121212\"}"}
+[2024-09-24 17:04:47] Acción: update, Tabla: cercado
+[2024-09-24 17:04:49] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:04:49] Acción: read, Tabla: cercado
+[2024-09-24 17:04:52] Solicitud recibida: {"action":"delete","table":"cercado","codigo_barras":"PROD_66f2d502e00d78.04982152"}
+[2024-09-24 17:04:52] Acción: delete, Tabla: cercado
+[2024-09-24 17:04:53] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:04:53] Acción: read, Tabla: cercado
+[2024-09-24 17:04:58] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:04:58] Acción: read, Tabla: cercado
+[2024-09-24 17:04:59] Solicitud recibida: {"action":"read","table":"riego"}
+[2024-09-24 17:04:59] Acción: read, Tabla: riego
+[2024-09-24 17:05:00] Solicitud recibida: {"action":"read","table":"orde\u00f1o"}
+[2024-09-24 17:05:00] Acción: read, Tabla: ordeño
+[2024-09-24 17:05:01] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:05:01] Acción: read, Tabla: pasturas
+[2024-09-24 17:08:20] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:08:20] Acción: read, Tabla: pasturas
+[2024-09-24 17:09:55] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:09:55] Acción: read, Tabla: pasturas
+[2024-09-24 17:10:20] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:10:20] Acción: read, Tabla: pasturas
+[2024-09-24 17:10:21] Solicitud recibida: {"action":"read","table":"orde\u00f1o"}
+[2024-09-24 17:10:21] Acción: read, Tabla: ordeño
+[2024-09-24 17:10:22] Solicitud recibida: {"action":"read","table":"riego"}
+[2024-09-24 17:10:22] Acción: read, Tabla: riego
+[2024-09-24 17:10:23] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:10:23] Acción: read, Tabla: cercado
+[2024-09-24 17:10:23] Solicitud recibida: {"action":"read","table":"riego"}
+[2024-09-24 17:10:23] Acción: read, Tabla: riego
+[2024-09-24 17:10:24] Solicitud recibida: {"action":"read","table":"orde\u00f1o"}
+[2024-09-24 17:10:24] Acción: read, Tabla: ordeño
+[2024-09-24 17:10:25] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:10:25] Acción: read, Tabla: pasturas
+[2024-09-24 17:10:32] Solicitud recibida: {"action":"create","table":"pasturas","data":"{\"producto\":\"Puerta No Corrediza\",\"precio\":\"12\",\"existencia\":\"1212\"}"}
+[2024-09-24 17:10:32] Acción: create, Tabla: pasturas
+[2024-09-24 17:10:32] Intentando crear: tabla=pasturas, data={"producto":"Puerta No Corrediza","precio":"12","existencia":"1212"}
+[2024-09-24 17:10:32] SQL: INSERT INTO pasturas (producto, precio, existencia, codigo_barras) VALUES (?, ?, ?, ?)
+[2024-09-24 17:10:32] Creación exitosa
+[2024-09-24 17:10:33] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:10:33] Acción: read, Tabla: pasturas
+[2024-09-24 17:10:39] Solicitud recibida: {"action":"read","table":"pasturas","codigo_barras":"PROD_66f2d6686220e3.81136579"}
+[2024-09-24 17:10:39] Acción: read, Tabla: pasturas
+[2024-09-24 17:10:43] Solicitud recibida: {"action":"update","table":"pasturas","codigo_barras":"PROD_66f2d6686220e3.81136579","data":"{\"Producto\":\"Puerta No Corrediza\",\"Precio\":\"12.00\",\"Existencia\":\"122121211\"}"}
+[2024-09-24 17:10:43] Acción: update, Tabla: pasturas
+[2024-09-24 17:10:45] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:10:45] Acción: read, Tabla: pasturas
+[2024-09-24 17:10:49] Solicitud recibida: {"action":"delete","table":"pasturas","codigo_barras":"PROD_66f2d6686220e3.81136579"}
+[2024-09-24 17:10:49] Acción: delete, Tabla: pasturas
+[2024-09-24 17:10:50] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:10:50] Acción: read, Tabla: pasturas
+[2024-09-24 17:10:52] Solicitud recibida: {"action":"read","table":"riego"}
+[2024-09-24 17:10:52] Acción: read, Tabla: riego
+[2024-09-24 17:10:52] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:10:52] Acción: read, Tabla: cercado
+[2024-09-24 17:10:55] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:10:55] Acción: read, Tabla: pasturas
+[2024-09-24 17:10:56] Solicitud recibida: {"action":"read","table":"orde\u00f1o"}
+[2024-09-24 17:10:56] Acción: read, Tabla: ordeño
+[2024-09-24 17:10:57] Solicitud recibida: {"action":"read","table":"riego"}
+[2024-09-24 17:10:57] Acción: read, Tabla: riego
+[2024-09-24 17:10:58] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:10:58] Acción: read, Tabla: cercado
+[2024-09-24 17:24:19] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:24:19] Acción: read, Tabla: pasturas
+[2024-09-24 17:24:45] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:24:45] Acción: read, Tabla: pasturas
+[2024-09-24 17:24:46] Solicitud recibida: {"action":"read","table":"orde\u00f1o"}
+[2024-09-24 17:24:46] Acción: read, Tabla: ordeño
+[2024-09-24 17:24:47] Solicitud recibida: {"action":"read","table":"riego"}
+[2024-09-24 17:24:47] Acción: read, Tabla: riego
+[2024-09-24 17:24:48] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:24:48] Acción: read, Tabla: cercado
+[2024-09-24 17:24:57] Solicitud recibida: {"action":"create","table":"cercado","data":"{\"producto\":\"Pasto Ecuador\",\"precio\":\"111\",\"existencia\":\"111\"}"}
+[2024-09-24 17:24:57] Acción: create, Tabla: cercado
+[2024-09-24 17:24:57] Intentando crear: tabla=cercado, data={"producto":"Pasto Ecuador","precio":"111","existencia":"111"}
+[2024-09-24 17:24:57] SQL: INSERT INTO cercado (producto, precio, existencia, codigo_barras) VALUES (?, ?, ?, ?)
+[2024-09-24 17:24:57] Creación exitosa
+[2024-09-24 17:24:59] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:24:59] Acción: read, Tabla: cercado
+[2024-09-24 17:25:06] Solicitud recibida: {"action":"read","table":"cercado","codigo_barras":"PROD_66f2d9c969f781.94743108"}
+[2024-09-24 17:25:06] Acción: read, Tabla: cercado
+[2024-09-24 17:25:10] Solicitud recibida: {"action":"update","table":"cercado","codigo_barras":"PROD_66f2d9c969f781.94743108","data":"{\"Producto\":\"Pasto Ecuador\",\"Precio\":\"222\",\"Existencia\":\"2\"}"}
+[2024-09-24 17:25:10] Acción: update, Tabla: cercado
+[2024-09-24 17:25:12] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:25:12] Acción: read, Tabla: cercado
+[2024-09-24 17:25:16] Solicitud recibida: {"action":"delete","table":"cercado","codigo_barras":"PROD_66f2d9c969f781.94743108"}
+[2024-09-24 17:25:16] Acción: delete, Tabla: cercado
+[2024-09-24 17:25:18] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:25:18] Acción: read, Tabla: cercado
+[2024-09-24 17:25:21] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 17:25:21] Acción: read, Tabla: pasturas
+[2024-09-24 17:25:22] Solicitud recibida: {"action":"read","table":"orde\u00f1o"}
+[2024-09-24 17:25:22] Acción: read, Tabla: ordeño
+[2024-09-24 17:25:23] Solicitud recibida: {"action":"read","table":"riego"}
+[2024-09-24 17:25:23] Acción: read, Tabla: riego
+[2024-09-24 17:25:24] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 17:25:24] Acción: read, Tabla: cercado
