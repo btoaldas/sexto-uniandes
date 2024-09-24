@@ -524,7 +524,7 @@
                 <select id="categoryFilter">
                     <option value="all">Todas las Categorías</option>
                     <option value="pasturas">Pasturas</option>
-                    <option value="ordeño">Ordeño</option>
+                    <option value="ordeno">Ordeño</option>
                     <option value="riego">Riego</option>
                     <option value="cercado">Cercado</option>
                 </select>
@@ -708,17 +708,18 @@
 
 
             <!-- Sección de ADMINISTRADOR -->
-            <div id="admin" class="content section">
+            <!-- <div id="admin" class="content section">
                 <h1>Administrador</h1>
-                <div id="admin-login">
+                 <div id="admin-login">
                     <h2>Inicia Sesion como Administrador</h2>
                     <form id="admin-login-form">
                         <label for="admin-code">Código de Acceso:</label>
                         <input type="password" id="admin-code" name="admin-code" required>
                         <button type="submit">Iniciar Sesión</button>
                     </form>
-                </div>
-                <div id="admin-content" style="display: none;">
+                </div> --> 
+                <!-- <div id="admin-content" style="display: none;"> -->
+                    <div id="admin-content" style="">
                     <h2>Panel de Administración</h2>
                     <div id="admin-tabs">
                         <button class="tab-button" onclick="showTab('pasturas')">Pasturas</button>
@@ -743,9 +744,9 @@
                         <button onclick="showAddForm('pasturas')">Añadir Pastura</button>
                     </div>
 
-                    <div id="ordeno-tab" class="tab-content">
+                    <div id="ordeño-tab" class="tab-content">
                         <h3>Ordeño</h3>
-                        <table id="ordeno-table">
+                        <table id="ordeño-table">
                             <thead>
                                 <tr>
                                     <th>Código de Barras</th>
@@ -756,7 +757,7 @@
                             </thead>
                             <tbody></tbody>
                         </table>
-                        <button onclick="showAddForm('ordeno')">Añadir Producto de Ordeño</button>
+                        <button onclick="showAddForm('ordeño')">Añadir Producto de Ordeño</button>
                     </div>
 
                     <div id="riego-tab" class="tab-content">

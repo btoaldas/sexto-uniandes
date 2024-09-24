@@ -297,6 +297,7 @@ function showTab(table) {
     currentTable = table;
     document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
     document.getElementById(`${table}-tab`).style.display = 'block';
+   
     loadTableData(table);
 }
 
@@ -322,8 +323,8 @@ function loadTableData(table) {
                 });
                 const actionsCell = document.createElement('td');
                 actionsCell.innerHTML = `
-                    <button onclick="editItem('${table}', ${item.codigo_barras})">Editar</button>
-                    <button onclick="deleteItem('${table}', ${item.codigo_barras})">Eliminar</button>
+                    <button onclick="editItem('${table}', '${item.Codigo_barras}')">Editar</button>
+                    <button onclick="deleteItem('${table}', '${item.Codigo_barras}')">Eliminar </button>
                 `;
                 row.appendChild(actionsCell);
                 tableBody.appendChild(row);
@@ -356,6 +357,7 @@ function showAddForm(table) {
     form.appendChild(submitButton);
 }
 function editItem(table, codigo_barras) {
+    // Hacemos la petición para obtener los datos del producto según el código de barras
     fetch('php/admin_crud.php', {
         method: 'POST',
         headers: {
@@ -365,31 +367,35 @@ function editItem(table, codigo_barras) {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success) {
-            const item = data.data;
+        if (data.success && data.data.length > 0) {  // Asegurarse de que hay datos disponibles
+            const item = data.data[0];  // Asumimos que el servidor devuelve un array de objetos, tomamos el primero
             const form = document.getElementById('edit-form');
-            form.innerHTML = '';
-            form.style.display = 'block';
+            form.innerHTML = '';  // Limpiamos el formulario
+            form.style.display = 'block';  // Mostramos el formulario
 
-            Object.entries(item).forEach(([key, value]) => {
-                if (key !== 'codigo_barras') {
-                    const input = document.createElement('input');
-                    input.type = 'text';
-                    input.name = key;
-                    input.value = value;
-                    form.appendChild(input);
-                }
+            // Creamos los inputs para Producto, Precio, y Existencia
+            const fields = ['Producto', 'Precio', 'Existencia'];  // Los campos que queremos editar
+
+            fields.forEach(field => {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.name = field;  // El nombre debe coincidir con las claves del objeto `item`
+                input.placeholder = field;
+                input.value = item[field] || '';  // Precargar los valores del producto
+                form.appendChild(input);
             });
 
+            // Añadimos un botón para actualizar
             const submitButton = document.createElement('button');
             submitButton.textContent = 'Actualizar';
-            submitButton.onclick = () => updateItem(table, codigo_barras);
+            submitButton.onclick = () => updateItem(table, codigo_barras);  // Al hacer clic, se llama a `updateItem`
             form.appendChild(submitButton);
         } else {
-            alert('Error al cargar los datos');
+            alert('Error al cargar los datos del producto');
         }
     });
 }
+
 
 function createItem(table) {
     const form = document.getElementById('edit-form');
@@ -433,23 +439,29 @@ function createItem(table) {
 function updateItem(table, codigo_barras) {
     const form = document.getElementById('edit-form');
     const data = {};
+    
+    // Recogemos los datos del formulario (Producto, Precio, Existencia)
     form.querySelectorAll('input').forEach(input => {
-        data[input.name] = input.value;
+        data[input.name] = input.value;  // Recoger los valores de los inputs
     });
 
+    // Log para ver qué datos se están enviando
+    console.log('Datos a enviar:', data);
+
+    // Enviamos la solicitud al servidor
     fetch('php/admin_crud.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: `action=update&table=${table}&codigo_barras=${codigo_barras}&data=${JSON.stringify(data)}`
+        body: `action=update&table=${table}&codigo_barras=${codigo_barras}&data=${encodeURIComponent(JSON.stringify(data))}`
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
             alert('Ítem actualizado con éxito');
-            form.style.display = 'none';
-            loadTableData(table);
+            form.style.display = 'none';  // Ocultamos el formulario después de actualizar
+            loadTableData(table);  // Recargamos la tabla para mostrar los cambios
         } else {
             alert('Error al actualizar el ítem: ' + data.message);
         }
@@ -459,6 +471,9 @@ function updateItem(table, codigo_barras) {
         alert('Error al procesar la solicitud');
     });
 }
+
+
+
 
 function deleteItem(table, codigo_barras) {
     if (confirm('¿Estás seguro de que quieres eliminar este ítem?')) {

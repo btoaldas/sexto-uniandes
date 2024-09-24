@@ -53,7 +53,7 @@ $action = $_POST['action'] ?? '';
 $table = $_POST['table'] ?? '';
 
 debug_log("Acción: $action, Tabla: $table");
-
+// $table = "ordeño";
 // Procesamiento de la acción
 switch ($action) {
     case 'read':
@@ -115,28 +115,67 @@ switch ($action) {
             }
             break;
 
-    case 'update':
-        $codigo_barras = $_POST['codigo_barras'];
-        $set = [];
-        $values = [];
-        $types = "";
-        foreach ($_POST['data'] as $key => $value) {
-            $set[] = "$key = ?";
-            $values[] = $value;
-            $types .= "s";
-        }
-        $values[] = $codigo_barras;
-        $types .= "s";
-        $setStr = implode(", ", $set);
-        $sql = "UPDATE $table SET $setStr WHERE codigo_barras = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param($types, ...$values);
-        if ($stmt->execute()) {
-            sendJsonResponse(true, 'Registro actualizado con éxito');
-        } else {
-            echo json_encode(['success' => false, 'message' => 'Error: ' . $stmt->error]);
-        }
-        break;
+            case 'update':
+                $codigo_barras = $_POST['codigo_barras'];  // Obtenemos el código de barras
+            
+                // Decodificamos el JSON recibido en el campo "data"
+                $data = json_decode($_POST['data'], true);
+                
+                // Asegurarse de que $data contiene los valores esperados
+                if (!$data || !is_array($data)) {
+                    sendJsonResponse(false, 'Datos inválidos para actualizar.');
+                    break;
+                }
+            
+                // Inicializamos las variables
+                $set = [];
+                $values = [];
+                $types = "";
+            
+                // Recopilamos los campos que se actualizarán
+                foreach ($data as $key => $value) {
+                    // Nos aseguramos de que no haya valores vacíos o nulos
+                    if (!empty($value)) {
+                        $set[] = "$key = ?";  // Solo incluimos los campos con valores válidos
+                        $values[] = $value;  
+                        $types .= "s";  // Tipo cadena para cada valor (asumimos que todos son strings)
+                    }
+                }
+            
+                // Log para depurar los valores que se están usando en la consulta
+                error_log("setStr: " . implode(", ", $set));  // Muestra los campos que se están actualizando
+                error_log("values: " . json_encode($values));  // Muestra los valores que se están pasando
+            
+                // Si no hay campos para actualizar, no ejecutamos la consulta
+                if (empty($set)) {
+                    sendJsonResponse(false, 'No se proporcionaron valores para actualizar.');
+                    break;
+                }
+            
+                // Añadimos el codigo_barras como parámetro para el WHERE
+                $values[] = $codigo_barras;  // El codigo_barras se usa para la cláusula WHERE
+                $types .= "s";  // Código de barras es también una cadena (VARCHAR)
+            
+                // Construimos la consulta SQL
+                $setStr = implode(", ", $set);  // Unimos los campos en una sola cadena
+                $sql = "UPDATE $table SET $setStr WHERE Codigo_barras = ?";
+            
+                // Ejecutar la declaración preparada
+                $stmt = $conn->prepare($sql);
+                if (!$stmt) {
+                    sendJsonResponse(false, 'Error al preparar la consulta: ' . $conn->error);
+                    break;
+                }
+            
+                $stmt->bind_param($types, ...$values);
+                if ($stmt->execute()) {
+                    sendJsonResponse(true, 'Registro actualizado con éxito');
+                } else {
+                    sendJsonResponse(false, 'Error al actualizar el registro: ' . $stmt->error);
+                }
+                break;
+            
+            
 
         case 'delete':
             $codigo_barras = $_POST['codigo_barras'];
