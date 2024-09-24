@@ -1,0 +1,47 @@
+[2024-09-24 07:49:08] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 07:49:08] Acción: read, Tabla: pasturas
+[2024-09-24 07:49:15] Solicitud recibida: {"action":"read","table":"orde\u00f1o"}
+[2024-09-24 07:49:15] Acción: read, Tabla: ordeño
+[2024-09-24 07:49:16] Solicitud recibida: {"action":"read","table":"riego"}
+[2024-09-24 07:49:16] Acción: read, Tabla: riego
+[2024-09-24 07:49:17] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 07:49:17] Acción: read, Tabla: cercado
+[2024-09-24 07:49:18] Solicitud recibida: {"action":"read","table":"cercado","codigo_barras":"786123700001"}
+[2024-09-24 07:49:18] Acción: read, Tabla: cercado
+[2024-09-24 07:49:22] Solicitud recibida: {"action":"update","table":"cercado","codigo_barras":"786123700001","data":"{\"Producto\":\"Postes de Madera para Cercado\",\"Precio\":\"15.00\",\"Existencia\":\"351\"}"}
+[2024-09-24 07:49:22] Acción: update, Tabla: cercado
+[2024-09-24 07:49:24] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 07:49:24] Acción: read, Tabla: cercado
+[2024-09-24 07:49:35] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 07:49:35] Acción: read, Tabla: pasturas
+[2024-09-24 07:53:11] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 07:53:11] Acción: read, Tabla: pasturas
+[2024-09-24 08:07:41] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 08:07:41] Acción: read, Tabla: pasturas
+[2024-09-24 08:08:39] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 08:08:39] Acción: read, Tabla: pasturas
+[2024-09-24 08:08:40] Solicitud recibida: {"action":"read","table":"orde\u00f1o"}
+[2024-09-24 08:08:40] Acción: read, Tabla: ordeño
+[2024-09-24 08:08:41] Solicitud recibida: {"action":"read","table":"riego"}
+[2024-09-24 08:08:41] Acción: read, Tabla: riego
+[2024-09-24 08:08:42] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 08:08:42] Acción: read, Tabla: cercado
+[2024-09-24 08:08:52] Solicitud recibida: {"action":"create","table":"cercado","data":"{\"producto\":\"333\",\"precio\":\"333\",\"existencia\":\"333\"}"}
+[2024-09-24 08:08:52] Acción: create, Tabla: cercado
+[2024-09-24 08:08:52] Intentando crear: tabla=cercado, data={"producto":"333","precio":"333","existencia":"333"}
+[2024-09-24 08:08:52] SQL: INSERT INTO cercado (producto, precio, existencia, codigo_barras) VALUES (?, ?, ?, ?)
+[2024-09-24 08:08:52] Creación exitosa
+[2024-09-24 08:08:54] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 08:08:54] Acción: read, Tabla: cercado
+[2024-09-24 08:08:56] Solicitud recibida: {"action":"read","table":"cercado","codigo_barras":"PROD_66f25774c13b35.13170384"}
+[2024-09-24 08:08:56] Acción: read, Tabla: cercado
+[2024-09-24 08:09:00] Solicitud recibida: {"action":"update","table":"cercado","codigo_barras":"PROD_66f25774c13b35.13170384","data":"{\"Producto\":\"333\",\"Precio\":\"444\",\"Existencia\":\"444\"}"}
+[2024-09-24 08:09:00] Acción: update, Tabla: cercado
+[2024-09-24 08:09:01] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 08:09:01] Acción: read, Tabla: cercado
+[2024-09-24 08:09:04] Solicitud recibida: {"action":"delete","table":"cercado","codigo_barras":"PROD_66f25774c13b35.13170384"}
+[2024-09-24 08:09:04] Acción: delete, Tabla: cercado
+[2024-09-24 08:09:05] Solicitud recibida: {"action":"read","table":"cercado"}
+[2024-09-24 08:09:05] Acción: read, Tabla: cercado
+[2024-09-24 08:09:16] Solicitud recibida: {"action":"read","table":"pasturas"}
+[2024-09-24 08:09:16] Acción: read, Tabla: pasturas
