@@ -10,6 +10,64 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+    <script src="script.js"></script>
+
+
+    <script>
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+    
+            // Mostrar la sección seleccionada
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+    
+            // Opcional: Recargar dinámicamente los contenidos que necesitan ser actualizados
+            if (sectionId === 'dashboard') {
+                refreshDashboard(); // Actualiza el contenido del dashboard
+            } else if (sectionId === 'IA') {
+                refreshIA(); // Si es el clasificador IA, puedes refrescar la interfaz aquí
+            }
+        }
+    
+        // Función para recargar dinámicamente el contenido del Dashboard
+        function refreshDashboard() {
+            // Aquí puedes hacer un AJAX request para obtener los últimos datos del dashboard
+            $.ajax({
+                url: '../proyecto-integrador/php/dashboard-data.php',
+                method: 'GET',
+                success: function (data) {
+                    // Suponiendo que data es un objeto con los datos a refrescar
+                    $('#total-users').text(data.total_users);
+                    $('#total-products').text(data.total_products);
+                    $('#total-inventory-value').text(data.total_inventory_value);
+                    $('#top-product').text(data.top_product);
+    
+                    // Actualizar gráficos si es necesario
+                    updateCharts(data.charts);
+                }
+            });
+        }
+    
+        // Función para refrescar la sección de IA (si es necesario)
+        function refreshIA() {
+            // Si necesitas refrescar algún contenido específico en la IA
+            // Aquí puedes enviar una petición AJAX o simplemente cargar algún contenido dinámico
+            console.log('IA section refreshed');
+        }
+    
+        // Función opcional para actualizar gráficos
+        function updateCharts(chartData) {
+            // Lógica para actualizar gráficos con Chart.js u otra biblioteca
+        }
+    </script>
+    
+
 </head>
 
 <body>
@@ -583,7 +641,7 @@
 
   <!-- Sección de IA -->
 <div id="IA" class="content section">
-    <div class="conversation-container mx-auto mt-5">
+    <div class="conversation-container mx-auto mt-12">
         
         <!-- Mensaje inicial de la IA (lado izquierdo) -->
         <div class="chat-row ia">
@@ -618,7 +676,7 @@
 <!-- Estilos adicionales para ocultar el borde y fondo del textarea -->
 <style>
     #user-input {
-        width: calc(100% - 40px); /* Ajustar el ancho del cuadro de texto */
+        width: 300px; /* Ajustar el ancho del cuadro de texto */
         border: none; /* Sin borde */
         outline: none; /* Evitar el borde al hacer clic */
         background-color: transparent; /* Fondo transparente */
@@ -674,7 +732,7 @@
 <!-- Estilos adicionales -->
 <style>
     .conversation-container {
-        max-width: 700px;
+        max-width: 100%;
         background-color: #f8f9fa;
         border-radius: 10px;
         padding: 20px;
@@ -687,7 +745,7 @@
     .chat-bubble {
         border-radius: 15px;
         padding: 15px;
-        max-width: 60%;
+        max-width: 80%;
         position: relative;
     }
     .chat-bubble.ia, .chat-bubble.user {
@@ -696,12 +754,13 @@
         text-align: left;
     }
     .chat-bubble.user textarea {
-        width: calc(100% - 40px); /* Ajustar el ancho del cuadro de texto */
+       /* width: calc(100% - 10px); /* Ajustar el ancho del cuadro de texto */
         border: none;
         outline: none;
         background-color: transparent;
         font-size: 16px;
         padding: 10px;
+        width: 300px;
         box-sizing: border-box;
     }
     .chat-bubble.user textarea::placeholder {
@@ -884,6 +943,9 @@
                     <button id="admin-logout">Salir</button>
                 </div>
 
-                <script src="https://d3js.org/d3.v6.min.js"></script>
-
-                <script src="script.js"></script>
+             </div>
+        </div>
+    </div>
+</body>
+</html>
+                

@@ -16,7 +16,7 @@ if ($conn1->connect_error) {
 }
 
 // Activar modo de desarrollo (simulación de respuesta)
-$development_mode = true; // Cambia a false para usar la API real
+$development_mode = false; // Cambia a false para usar la API real
 
 // Respuesta simulada para pruebas sin consulta real a la API
 $mock_response = [
@@ -149,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
                 echo '</div>';
 
                 echo '<div class="card-body text-center">';
-                echo '<img src="ia/' . htmlspecialchars($filepath) . '" alt="Imagen del producto" style="max-width: 100%; height: auto;">';
+                echo '<center><img src="ia/' . htmlspecialchars($filepath) . '" alt="Imagen del producto" style="max-width: 100%; height: auto;"></center>';
                 echo '</div>';
 
                 echo '<div class="card-body">';
@@ -211,7 +211,7 @@ if ($stmt->rowCount() > 0) {
     echo '</tbody>';
     echo '</table>';
     echo '<div class="card-footer bg-light text-center">';
-    echo '<p>¡Compre con nosotros, sabemos lo que hacemos!</p>';
+    echo '<center><p>¡Compre con nosotros, sabemos lo que hacemos!</p></center>';
     echo '</div>';
     echo '</div>';
 } else {

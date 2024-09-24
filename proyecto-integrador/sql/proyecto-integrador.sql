@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-09-2024 a las 04:01:14
+-- Tiempo de generación: 24-09-2024 a las 01:57:17
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `mi_base_datos`
+-- Base de datos: `proyecto_integrador_6_uniandes`
 --
 
 -- --------------------------------------------------------
@@ -57,10 +57,33 @@ CREATE TABLE `cercado` (
 --
 
 INSERT INTO `cercado` (`Codigo_barras`, `Producto`, `Precio`, `Existencia`) VALUES
-('', 'A', 2.00, 2),
-('1', 'LLANTEN', 23.00, 1),
-('PROD_66e1c1a13ee003.53509036', 'LECHE', 202.00, 9),
-('PROD_66e1ca99f21ec3.47557366', 'GH', 202.00, 9999);
+('786123700001', 'Postes de Madera para Cercado', 15.00, 350),
+('786123700002', 'Alambre de Púas Galvanizado', 50.00, 200),
+('786123700003', 'Cerca Eléctrica Solar', 300.00, 10),
+('786123700004', 'Aisladores para Cerca Eléctrica', 8.00, 500),
+('786123700005', 'Controlador de Cerca Eléctrica', 150.00, 25),
+('786123700006', 'Malla Ganadera Reforzada', 100.00, 50),
+('786123700007', 'Puertas Metálicas para Cercado', 250.00, 15),
+('786123700008', 'Cemento para Bases de Cercado', 12.00, 150),
+('786123700009', 'Grampas para Alambre de Cercado', 0.10, 1000),
+('786123700010', 'Herramientas de Tensado de Alambre', 45.00, 40),
+('786123700011', 'Poles para Cierre de Pastizales', 30.00, 100),
+('786123700012', 'Paneles Solares para Cerca', 450.00, 8),
+('786123700013', 'Motor de Cerca Automática', 200.00, 6),
+('786123700014', 'Redes de Contención para Ganado', 180.00, 30),
+('786123700015', 'Sistema de Doble Alambre para Cercado', 70.00, 20),
+('786123700016', 'Hilo Eléctrico para Cercado', 55.00, 400),
+('786123700017', 'Poste de Acero Galvanizado', 45.00, 100),
+('786123700018', 'Cinta para Cerca Eléctrica', 20.00, 250),
+('786123700019', 'Kit de Energizador Solar', 380.00, 15),
+('786123700020', 'Electrificador de Cercado 5000V', 220.00, 12),
+('786123700021', 'Cerradura para Cercado Metálico', 35.00, 80),
+('786123700022', 'Cables para Cerca de Alta Tensión', 120.00, 40),
+('786123700023', 'Reparador de Alambre para Cercado', 45.00, 120),
+('786123700024', 'Protector de Puertas para Cercado', 55.00, 90),
+('786123700025', 'Batería de Cerca Solar', 160.00, 20),
+('786123700026', 'Cortador de Alambre Reforzado', 30.00, 150),
+('786123700027', 'Puerta Corrediza para Cercado', 420.00, 6);
 
 -- --------------------------------------------------------
 
@@ -80,7 +103,27 @@ CREATE TABLE `ordeño` (
 --
 
 INSERT INTO `ordeño` (`Codigo_barras`, `Producto`, `Precio`, `Existencia`) VALUES
-('1', 'leche', 89.00, 1);
+('786123500001', 'Sistema de Ordeño Espina de Pescado', 5000.00, 10),
+('786123500002', 'Ordeno Portátil DeLaval', 1200.00, 15),
+('786123500003', 'Tanque Enfriador de Leche 1000L', 2500.00, 5),
+('786123500004', 'Kit de Limpieza para Ordeño', 45.00, 50),
+('786123500005', 'Unidad de Vacio Completa', 3500.00, 8),
+('786123500006', 'Cangilón de Ordeño', 35.00, 100),
+('786123500007', 'Filtro de Leche para Ordeño', 25.00, 300),
+('786123500008', 'Bombas de Vacío para Ordeño', 600.00, 4),
+('786123500009', 'Tubo de Pulsación para Ordeño', 40.00, 120),
+('786123500010', 'Sistema de Pesado de Leche', 1500.00, 2),
+('786123500011', 'Lubricante de Equipos Ordeño', 30.00, 200),
+('786123500012', 'Manguera para Ordeño', 20.00, 150),
+('786123500013', 'Medidor de Leche Digital', 950.00, 10),
+('786123500014', 'Pinzas para Válvulas de Ordeño', 10.00, 500),
+('786123500015', 'Sistema de Desinfección de Ordeño', 75.00, 80),
+('786123500016', 'Extractor de Leche Mecánico', 1150.00, 7),
+('786123500017', 'Válvulas de Corte para Ordeño', 55.00, 85),
+('786123500018', 'Sistema de Ordeño Portátil', 1800.00, 4),
+('786123500019', 'Cuba de Ordeño 150L', 950.00, 12),
+('786123500020', 'Pulsores de Alta Eficiencia', 125.00, 55),
+('786123500021', 'Bomba de Leche Inoxidable', 670.00, 10);
 
 -- --------------------------------------------------------
 
@@ -100,15 +143,24 @@ CREATE TABLE `pasturas` (
 --
 
 INSERT INTO `pasturas` (`Codigo_barras`, `Producto`, `Precio`, `Existencia`) VALUES
-('', '1', 2.00, 0),
-('1', 'LLANTEN', 58.00, 9),
-('PROD_66e1c1ad7f5055.94471367', 'A', 202.00, 9),
-('PROD_66e1c1c567c5f1.87969358', 'GH', 202.00, 9999),
-('PROD_66e1c4765ac4c3.98650264', 'A', 303.00, 9999),
-('PROD_66e1ccc058b3e3.07399861', 'GH', 202.00, 9999),
-('PROD_66e1cccedb5bb3.82220114', '8888', 888.00, 88),
-('PROD_66e3216d46ebc8.14615600', '1', 1.00, 1),
-('PROD_66e46bf90a8844.91650995', '1', 1.00, 1);
+('786123400001', 'Ryegrass Perenne', 25.00, 100),
+('786123400002', 'Alfalfa Certificada', 18.50, 75),
+('786123400003', 'Pastura Bermuda', 22.00, 200),
+('786123400004', 'Brachiaria Brizantha', 35.00, 50),
+('786123400005', 'Cebadilla Tropical', 30.00, 120),
+('786123400006', 'Pasto Elefante', 28.00, 0),
+('786123400007', 'Pasto Saboya', 32.00, 90),
+('786123400008', 'Ryegrass Anual', 27.00, 150),
+('786123400009', 'Triticale Forrajero', 24.00, 60),
+('786123400010', 'Clavel Pasto', 20.50, 130),
+('786123400011', 'Pangola Mejorado', 29.00, 0),
+('786123400012', 'Mulato II', 35.50, 80),
+('786123400013', 'Pasto Kikuyo', 21.00, 110),
+('786123400014', 'Cynodon Dactylon', 22.50, 140),
+('786123400015', 'Pasto Toledo', 30.00, 95),
+('786123400016', 'Pasto Mombasa', 26.50, 90),
+('786123400017', 'Festuca Forrajera', 19.80, 70),
+('786123400018', 'Pasto Sudán', 29.90, 0);
 
 -- --------------------------------------------------------
 
@@ -128,8 +180,30 @@ CREATE TABLE `riego` (
 --
 
 INSERT INTO `riego` (`Codigo_barras`, `Producto`, `Precio`, `Existencia`) VALUES
-('1', 'RIEGO', 66.00, 1),
-('PROD_66e1ccfdf0cf20.87192944', 'A', 0.00, 1);
+('786123600001', 'Sistema de Riego por Goteo', 850.00, 25),
+('786123600002', 'Aspersores de Alta Presión', 60.00, 150),
+('786123600003', 'Válvula de Control Riego', 120.00, 30),
+('786123600004', 'Tubería de Riego PE 32mm', 2.50, 500),
+('786123600005', 'Temporizador de Riego Digital', 40.00, 90),
+('786123600006', 'Bomba de Agua para Riego', 750.00, 5),
+('786123600007', 'Conectores de Riego por Goteo', 15.00, 250),
+('786123600008', 'Riego Automático Solar', 1200.00, 2),
+('786123600009', 'Filtro de Arena para Riego', 200.00, 10),
+('786123600010', 'Kit de Mangueras para Riego', 100.00, 60),
+('786123600011', 'Controlador de Riego Inteligente', 300.00, 20),
+('786123600012', 'Tanque de Agua para Riego 500L', 250.00, 12),
+('786123600013', 'Fertilizante Líquido para Riego', 85.00, 70),
+('786123600014', 'Pistola de Riego Manual', 35.00, 200),
+('786123600015', 'Tubo PVC para Riego', 3.00, 400),
+('786123600016', 'Manguera de Riego 50m', 120.00, 45),
+('786123600017', 'Sensor de Humedad para Riego', 40.00, 100),
+('786123600018', 'Sistema de Microaspersión', 85.00, 60),
+('786123600019', 'Filtro de Disco para Riego', 180.00, 20),
+('786123600020', 'Aspersor Agrícola de Alto Alcance', 75.00, 150),
+('786123600021', 'Kit de Fertirriego', 300.00, 35),
+('786123600022', 'Carrete para Riego Automático', 980.00, 5),
+('786123600023', 'Estación Meteorológica para Riego', 650.00, 3),
+('786123600024', 'Controlador de Riego Bluetooth', 220.00, 18);
 
 -- --------------------------------------------------------
 
@@ -152,17 +226,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `telefono`, `password`) VALUES
 (1, 'Alexis Javier', 'Pazmiño Enriquez', 'alexisjavierpazmino@gmail.com', '0988506606', '$2y$10$fcvJoCbSN.4BSffjUSZTfuWxPNviecSHWXW/036d3yuWXaX6KWCJ.'),
-(4, 'Alexis Javier', 'Pazmiño Enriquez', 'alexisjavieno@gmail.com', '0988506606', '$2y$10$ov4KaGdVeE0qA2nZjxW8ce1wQ1BSQkYAB/4rGAmss3OD9UbUP0EyC'),
-(5, 'aa', 'aa', 'aa@aa', 'aa', '$2y$10$6MIXPVbOtD6FgcirGtowpeYnokq7e1XbO7e2cdfZ7IA8fwVz5T0lG'),
-(7, 'aa', 'aa', 'aaaa@aa', 'aa', '$2y$10$sai0.spYUeiLxb1TMqQZoO/1ozxRgsuA0K3ugzVpDQZm9BOQisDeu'),
-(8, 'qq', 'qq', 'qq@aa', '123', '$2y$10$er6YYDovVGQ8bmuvg4BrSORPvqDlBvhkDl6X6U3EfjRQiymSC3IEy'),
-(9, 'AAA', 'EE', 'EAE@GM', '1234567898', '$2y$10$5zaEXxcc0yhF3TTD3yTwQuupUlyf/Yk.X/fxQRa21D2e.szPzqcFa'),
-(10, 'Estefy ', 'Parra', 'estefypara@gmail.com', '0995506606', '$2y$10$ou3MMWLqDTin3Pj9MVPsceNtokky/HeIO3KSZ9d5w1QkFJ/Rfwqe6'),
-(12, 'Alexis Javier', 'Pazmiño Enriquez', 'alexisjavierpazminoo@gmail.com', '0988506606', '$2y$10$u12m42..s5GGa8wNTr5bb.NQH1SgfXk1rXuduIWSNCeiavJjT7dGa'),
-(13, 'Alexis Javier', 'Pazmiño Enriquez', 'alexisjavierpazminoaaaa@gmail.com', '0988506606', '$2y$10$PTmuRtPy/7vG1PTAcIQbTeqnCEzhrn1sHmVd79zeLx1EIoDcC/V86'),
-(14, 'Alexis Javier', 'Pazmiño Enriquez', 'alexisjavierpazminasasaso@gmail.com', '0988506606', 'Aqwqwqw'),
-(15, 'JOEL', '`P', 'alexisjavieASrpazmino@gmail.com', '0988121212', 'A5252525'),
-(16, 'Rolando', 'Enriquez', 'Rolando2003@gmail.com', '2525252522', '$2y$10$EOQfHiK9Zp37YSJyH16by..tHbB4GvE1EyE9eqdMgOug5fzh/R.J2');
+(16, 'Rolando', 'Enriquez', 'Rolando2003@gmail.com', '2525252522', '$2y$10$EOQfHiK9Zp37YSJyH16by..tHbB4GvE1EyE9eqdMgOug5fzh/R.J2'),
+(17, 'Alberto', 'Aldas', 'albertoalex@gmail.com', '0969062676', '$2y$10$p/ylB.bFD0Hn2m6uMVyoqeV585DcrGsz0YV49E8yqnzjAbutSi8Y.');
 
 --
 -- Índices para tablas volcadas
@@ -219,7 +284,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
